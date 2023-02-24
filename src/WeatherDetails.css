@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.container-details {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 30px;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.floatRight {
+  color: white;
+  float: right;
+}
