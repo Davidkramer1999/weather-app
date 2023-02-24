@@ -4,6 +4,7 @@ import Search from './Search'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import WeatherDetails from './WeatherDetails';
+import './css/Template.css';
 
 export default function Template() {
     const [city, setCityName] = useState("");
@@ -37,11 +38,13 @@ export default function Template() {
         const weatherImage = cityData.weather?.[0].main
         return weatherImage === "Clouds" ? "cloudy background" :
             weatherImage === "Rain" ? "raining background" :
-                weatherImage === "Snowing" ? "snowing background " :
+                weatherImage === "Snow" ? "snowing background " :
                     weatherImage === "Mist" ? "snowing background" :
+                    weatherImage === "Clear" ? "clear background" :
                         weatherImage === "Fog" ? "fog background" : "cloudy background"
     }
 
+    console.log(cityData.main?.temp );
     return (
         <div className={`'background ' ${backgroundImage()}`}>
             <div className="blur">
@@ -68,10 +71,10 @@ export default function Template() {
             </div>
             <div className='verticalTop' />
             <div className='verticalBottom'>
-                <div className='right-side'>
+                <div className='rightSide'>
                     <div>
                         <span> {cityData.name}</span>
-                        <span className='temperature'>{cityData.main?.temp}°</span>
+                        <span className='temperature'> {  typeof cityData.main === "undefined" ? <span/> : Math.round(cityData.main?.temp)}°</span>
                     </div>
                 </div>
                 <div>{cityData.weather?.[0].main}</div>

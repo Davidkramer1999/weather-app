@@ -1,9 +1,10 @@
 import React from 'react'
+import './css/WeatherDetails.css';
 
 function WeatherDetails({ temp, feelsLike, tempMin, tempMax, humidity }) {
     return (
         <div>
-            <div className='container-details'>
+            <div className='containerDetails'>
                 <span className='floatLeft'>Weather details</span>
             </div>
             <div className='container'>

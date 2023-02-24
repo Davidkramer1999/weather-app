@@ -23,7 +23,7 @@
   cursor: pointer;
 }
 
-.right-side {
+.rightSide {
   font-size: 50px;
   color: white;
   float: center;
@@ -70,4 +70,9 @@
   color: rgba(232, 230, 230, 0.708);
   font-weight: 530;
   background-image: url(https://images.unsplash.com/photo-1606454277702-91f9c92257cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1343&q=80)
+}
+.clear {
+  color: rgba(232, 230, 230, 0.708);
+  font-weight: 530;
+  background-image: url(https://images.unsplash.com/photo-1615884725790-e1afda64685e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1585&q=80)
 }
