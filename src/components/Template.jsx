@@ -38,7 +38,8 @@ export default function Template() {
         return weatherImage === "Clouds" ? "cloudy background" :
             weatherImage === "Rain" ? "raining background" :
                 weatherImage === "Snowing" ? "snowing background " :
-                    weatherImage === "Mist" ? "snowing background" : "cloudy background"
+                    weatherImage === "Mist" ? "snowing background" :
+                        weatherImage === "Fog" ? "fog background" : "cloudy background"
     }
 
     return (

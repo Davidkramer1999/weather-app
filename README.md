@@ -1,10 +1,10 @@
 # How to use
 
 # Clone this repository
-$ git clone https://github.com/Davidkramer1999/weather-app.git
+$ git clone https://github.com/Davidkramer1999/WeahterApp
 
 # Go into the repository
-$ cd weather-app
+$ cd WeahterApp
 
 # Install dependencies
 $ npm install
@@ -21,3 +21,6 @@ $ npm start
  This software uses the following open source packages:
   - React@18.2.0
   - FontAwesome icons@4.7.0
+
+# .ENV
+ $ REACT_APP_KEY = "&{API key}" 

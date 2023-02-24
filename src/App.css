@@ -35,5 +35,9 @@ body::-webkit-scrollbar {
 }
 
 .snowing {
-  background-image: url(https://images.unsplash.com/photo-1518467946652-b194dd6dd321?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80)
+  background-image: url(https://www.maxpixel.net/static/photo/2x/Snowfall-Railway-Winter-City-Snowing-Road-Snow-5859804.jpg)
+}
+
+.fog {
+  background-image: url(https://scontent.flju4-1.fna.fbcdn.net/v/t1.6435-9/90790023_1553863308116479_2228464156854452224_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=9267fe&_nc_ohc=_Onyfl4TbMYAX9CTutC&_nc_ht=scontent.flju4-1.fna&oh=00_AfB9PdgUx0TgFviyIGRKVDW-f26p8kYjcyVmxszqarS80g&oe=642012D1)
 }
