@@ -9,7 +9,7 @@ import './css/Template.css';
 export default function Template() {
     const [city, setCityName] = useState("");
     const [cityData, setCityData] = useState({});
-    const [previousCities, setPreviousCities] = useState([]);
+    const [cityHistory, setCityHistory] = useState([]);
 
     async function fetchData() {
         try {
@@ -19,9 +19,9 @@ export default function Template() {
             }
             const json = await response.json();
             setCityData(json);
-            previousCities.push(json)
-            if (previousCities.length > 5) {
-                setPreviousCities(previousCities.slice(1))
+            cityHistory.push(json)
+            if (cityHistory.length > 5) {
+                setCityHistory(cityHistory.slice(1))
             }
             setCityName("")
         } catch (e) {
@@ -40,11 +40,10 @@ export default function Template() {
             weatherImage === "Rain" ? "raining background" :
                 weatherImage === "Snow" ? "snowing background " :
                     weatherImage === "Mist" ? "snowing background" :
-                    weatherImage === "Clear" ? "clear background" :
-                        weatherImage === "Fog" ? "fog background" : "cloudy background"
+                        weatherImage === "Clear" ? "clear background" :
+                            weatherImage === "Fog" ? "fog background" : "cloudy background"
     }
 
-    console.log(cityData.main?.temp );
     return (
         <div className={`'background ' ${backgroundImage()}`}>
             <div className="blur">
@@ -54,8 +53,8 @@ export default function Template() {
                             value={city}
                             onChange={setCityName} />
                         <FontAwesomeIcon onClick={() => fetchData()} icon={faSearch} />
-                        {previousCities.map((item, i) => (
-                            <div className='previousCities' onClick={() => selectPreviousLocation(item)} key={item.id + i}>{item.name}</div>
+                        {cityHistory.map((item, i) => (
+                            <div className='cityHistory' onClick={() => selectPreviousLocation(item)} key={item.id + i}>{item.name}</div>
                         )).reverse()}
                     </span>
                 </div>
@@ -74,7 +73,7 @@ export default function Template() {
                 <div className='rightSide'>
                     <div>
                         <span> {cityData.name}</span>
-                        <span className='temperature'> {  typeof cityData.main === "undefined" ? <span/> : Math.round(cityData.main?.temp)}°</span>
+                        <span className='temperature'> {typeof cityData.main === "undefined" ? <span /> : Math.round(cityData.main?.temp)}°</span>
                     </div>
                 </div>
                 <div>{cityData.weather?.[0].main}</div>
