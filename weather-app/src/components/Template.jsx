@@ -5,76 +5,77 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import WeatherDetails from './WeatherDetails';
 
-
 export default function Template() {
-    const [city, setNameCity] = useState("");
-    const [data, setData] = useState({});
-    const [previousCities, setPreviousData] = useState([]);
+    const [city, setCityName] = useState("");
+    const [cityData, setCityData] = useState({});
+    const [previousCities, setPreviousCities] = useState([]);
 
     async function fetchData() {
         try {
-            const response = await fetch(`${process.env.REACT_APP_BASE_URL
-                + city + process.env.REACT_APP_KEY + process.env.REACT_APP_METRIC}`);
+            const response = await fetch(`${process.env.REACT_APP_BASE_URL}${city}${process.env.REACT_APP_KEY}${process.env.REACT_APP_METRIC}`);
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error();
             }
             const json = await response.json();
-            setData(json);
+            setCityData(json);
             previousCities.push(json)
-            if (previousCities.length > 5) {
-                previousCities.shift()
+            if (previousCities.length > 2) {
+                setPreviousCities(previousCities.slice(1))
             }
-            setNameCity("")
+            setCityName("")
         } catch (e) {
-            alert('Please note that searching by states available only for the USA locations')
+            alert(`Could not fetch weather data for provided city ${city}`)
         }
     }
 
     const selectPreviousLocation = (item) => {
-        setNameCity(item.name)
-        setData(item)
+        setCityName(item.name)
+        setCityData(item)
     }
 
     const backgroundImage = () => {
-        const weatherImage = data.weather?.[0].main
-        return weatherImage === "Clouds" ? "cloudy" :
-            weatherImage === "Raining" ? "raining" :
-                weatherImage === "Snowing" ? "snowing" :
-                    weatherImage === "Mist" ? "snowing" : "cloudy"
+        const weatherImage = cityData.weather?.[0].main
+        return weatherImage === "Clouds" ? "cloudy background" :
+            weatherImage === "Rain" ? "raining background" :
+                weatherImage === "Snowing" ? "snowing background " :
+                    weatherImage === "Mist" ? "snowing background" : "cloudy background"
     }
 
     return (
         <div className={`'background ' ${backgroundImage()}`}>
             <div className="blur">
-                <div className='column1'>
+                <div className='verticalTop'>
                     <span>
                         <Search
                             value={city}
-                            onChange={setNameCity} />
+                            onChange={setCityName} />
                         <FontAwesomeIcon onClick={() => fetchData()} icon={faSearch} />
                         {previousCities.map((item, i) => (
                             <div className='previousCities' onClick={() => selectPreviousLocation(item)} key={item.id + i}>{item.name}</div>
-                        ))}
+                        )).reverse()}
                     </span>
                 </div>
-                <div className='column2'>
+                <div className='verticalBottom'>
                     <WeatherDetails
-                        weatherDetails={data.main}
+                        temp={cityData.main?.temp}
+                        feelsLike={cityData.main?.feels_like}
+                        tempMin={cityData.main?.temp_min}
+                        tempMax={cityData.main?.temp_max}
+                        humidity={cityData.main?.humidity}
                     />
                 </div>
             </div>
-            <div className='column1' />
-            <div className='column2'>
+            <div className='verticalTop' />
+            <div className='verticalBottom'>
                 <div className='right-side'>
                     <div>
-                        <span> {data.name}</span>
-                        <span className='temperature'>{data.main?.temp}°</span>
+                        <span> {cityData.name}</span>
+                        <span className='temperature'>{cityData.main?.temp}°</span>
                     </div>
                 </div>
-                <div>{data.weather?.[0].main}</div>
+                <div>{cityData.weather?.[0].main}</div>
             </div>
         </div>
 
     )
 }
-

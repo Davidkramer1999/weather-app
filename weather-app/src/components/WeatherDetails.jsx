@@ -1,32 +1,32 @@
 import React from 'react'
 
-function WeatherDetails({ weatherDetails }) {
+function WeatherDetails({ temp, feelsLike, tempMin, tempMax, humidity }) {
     return (
-        <>
+        <div>
             <div className='container-details'>
-                <span className='left'>Weather details</span>
+                <span className='floatLeft'>Weather details</span>
             </div>
             <div className='container'>
-                <span className='left'>Temperature</span>
-                <span className='right '> {weatherDetails?.temp} °C </span>
+                <span className='floatLeft'>Temperature</span>
+                <span className='floatRight '> {temp} °C </span>
             </div>
             <div className='container'>
-                <span className='left'>Feels like</span>
-                <span className='right '> {weatherDetails?.feels_like} °C </span>
+                <span className='floatLeft'>Feels like</span>
+                <span className='floatRight '> {feelsLike} °C </span>
             </div >
             <div className='container'>
-                <span className='left'>Minimum temperature</span>
-                <span className='right '> {weatherDetails?.temp_min} °C</span>
+                <span className='floatLeft'>Minimum temperature</span>
+                <span className='floatRight '> {tempMin} °C</span>
             </div>
             <div className='container'>
-                <span className='left'>Maximum temperature</span>
-                <span className='right '> {weatherDetails?.temp_max} °C </span>
+                <span className='floatLeft'>Maximum temperature</span>
+                <span className='floatRight '> {tempMax} °C </span>
             </div>
             <div className='container'>
-                <span className='left'>Humidity</span>
-                <span className='right '> {weatherDetails?.humidity} %</span>
+                <span className='floatLeft'>Humidity</span>
+                <span className='floatRight '> {humidity} %</span>
             </div>
-        </>
+        </div>
     )
 }
 
