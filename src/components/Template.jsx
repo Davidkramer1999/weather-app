@@ -19,7 +19,7 @@ export default function Template() {
             const json = await response.json();
             setCityData(json);
             previousCities.push(json)
-            if (previousCities.length > 2) {
+            if (previousCities.length > 5) {
                 setPreviousCities(previousCities.slice(1))
             }
             setCityName("")
