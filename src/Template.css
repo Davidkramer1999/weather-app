@@ -41,24 +41,33 @@
 
 .blur {
   background: linear-gradient(to right, rgba(255, 255, 255, 0.1));
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
   height: 100vh;
   width: 40%;
   float: left;
 }
 
 .raining {
-  background-image: url(https://thoughtcatalog.com/wp-content/uploads/2018/01/joy-stamp-21279.jpg?resize=1536,865);
+  background-image: url(https://images.unsplash.com/photo-1542221777328-f6a98e2eb4fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80);
+  color: rgba(255, 255, 255, 0.941);
+  font-weight: 530;
 }
 
+
 .cloudy {
+  color: rgba(232, 230, 230, 0.708);
+  font-weight: 530;
   background-image: url(https://images.unsplash.com/photo-1500740516770-92bd004b996e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80);
 }
 
 .snowing {
+  color: rgba(232, 230, 230, 0.708);
+  font-weight: 530;
   background-image: url(https://www.maxpixel.net/static/photo/2x/Snowfall-Railway-Winter-City-Snowing-Road-Snow-5859804.jpg)
 }
 
 .fog {
-  background-image: url(https://scontent.flju4-1.fna.fbcdn.net/v/t1.6435-9/90790023_1553863308116479_2228464156854452224_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=9267fe&_nc_ohc=_Onyfl4TbMYAX9CTutC&_nc_ht=scontent.flju4-1.fna&oh=00_AfB9PdgUx0TgFviyIGRKVDW-f26p8kYjcyVmxszqarS80g&oe=642012D1)
+  color: rgba(232, 230, 230, 0.708);
+  font-weight: 530;
+  background-image: url(https://images.unsplash.com/photo-1606454277702-91f9c92257cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1343&q=80)
 }

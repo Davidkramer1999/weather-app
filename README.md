@@ -23,4 +23,4 @@ $ npm start
   - FontAwesome icons@4.7.0
 
 # .ENV
- $ REACT_APP_KEY = "&{API key}" 
+ $ REACT_APP_KEY = "&appid={API key}" 
