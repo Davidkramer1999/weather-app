@@ -36,12 +36,12 @@ export default function Template() {
 
     const backgroundImage = () => {
         const weatherImage = cityData.weather?.[0].main
-        return weatherImage === "Clouds" ? "cloudy background" :
-            weatherImage === "Rain" ? "raining background" :
-                weatherImage === "Snow" ? "snowing background " :
-                    weatherImage === "Mist" ? "snowing background" :
+        return weatherImage === "Clouds" ? "clouds background" :
+            weatherImage === "Rain" ? "rain background" :
+                weatherImage === "Snow" ? "snow background " :
+                    weatherImage === "Mist" ? "snow background" :
                         weatherImage === "Clear" ? "clear background" :
-                            weatherImage === "Fog" ? "fog background" : "cloudy background"
+                            weatherImage === "Fog" ? "fog background" : "clouds background"
     }
 
     return (
@@ -71,14 +71,16 @@ export default function Template() {
             <div className='verticalTop' />
             <div className='verticalBottom'>
                 <div className='rightSide'>
-                    <div>
-                        <span> {cityData.name}</span>
-                        <span className='temperature'> {typeof cityData.main === "undefined" ? <span /> : Math.round(cityData.main?.temp)}°</span>
-                    </div>
+                    {
+                        typeof cityData.main === "undefined" ? <span /> :
+                            <div>
+                                <span> {cityData.name}</span>
+                                <span className='temperature'> {Math.round(cityData.main?.temp)}°</span>
+                            </div>
+                    }
                 </div>
                 <div>{cityData.weather?.[0].main}</div>
             </div>
         </div>
-
     )
 }
