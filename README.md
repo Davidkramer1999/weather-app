@@ -1,23 +1,23 @@
 # How to use
 
 # Clone this repository
-$ git clone https://github.com/Davidkramer1999/WeahterApp
+- git clone https://github.com/Davidkramer1999/WeahterApp
 
 # Go into the repository
-$ cd WeahterApp
+- cd WeahterApp
 
 # Install dependencies
-$ npm install
+- npm install
 
 # Run the app
-$ npm start
+- npm start
 
 # .ENV
  - check .env.example
  - create .env file and add
  - REACT_APP_BASE_URL="https://api.openweathermap.org/data/2.5/weather?q="
- - REACT_APP_KEY = "&appid={API key}" 
- - REACT_APP_METRIC ="&units=metric"
+ - REACT_APP_KEY="&appid={API key}" 
+ - REACT_APP_METRIC="&units=metric"
 
 # Key Features
  - See weather in USA cities 
