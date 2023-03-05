@@ -15,9 +15,7 @@
 # .ENV
  - check .env.example
  - create .env file and add
- - REACT_APP_BASE_URL="https://api.openweathermap.org/data/2.5/weather?q="
  - REACT_APP_KEY="&appid={API key}" 
- - REACT_APP_METRIC="&units=metric"
 
 # Key Features
  - See weather in USA cities 
