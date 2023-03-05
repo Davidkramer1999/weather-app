@@ -1,4 +1,5 @@
 import React from 'react'
+
 import './css/WeatherDetails.css';
 
 function WeatherDetails({ temp, feelsLike, tempMin, tempMax, humidity }) {

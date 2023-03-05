@@ -1,10 +1,11 @@
+import WeatherMain from './components/WeatherMain';
+
 import './App.css';
-import Template from './components/Template';
 
 function App() {
   return (
     <div className="App">
-      <Template></Template>
+      <WeatherMain></WeatherMain>
     </div>
   );
 }
