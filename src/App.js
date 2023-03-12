@@ -5,7 +5,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <WeatherMain></WeatherMain>
+      <Routes>
+        <Route path="/" element={<WeatherMain />} />
+      </Routes>
     </div>
   );
 }
