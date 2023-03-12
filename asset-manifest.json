@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Davidkramer1999/WeahterApp/static/css/main.30955b8e.css",
+    "main.js": "/Davidkramer1999/WeahterApp/static/js/main.29b12289.js",
+    "index.html": "/Davidkramer1999/WeahterApp/index.html",
+    "main.30955b8e.css.map": "/Davidkramer1999/WeahterApp/static/css/main.30955b8e.css.map",
+    "main.29b12289.js.map": "/Davidkramer1999/WeahterApp/static/js/main.29b12289.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.30955b8e.css",
+    "static/js/main.29b12289.js"
+  ]
+}
