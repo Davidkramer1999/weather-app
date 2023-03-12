@@ -9,7 +9,7 @@ import ErrorMessage from './ErrorMessage';
 
 import './css/WeatherMain.css';
 
-export default function WeatherTemplate() {
+export default function WeatherMain() {
     const [city, setCityName] = useState("")
     const [cityData, setCityData] = useState({})
     const [cityHistory, setCityHistory] = useState([])

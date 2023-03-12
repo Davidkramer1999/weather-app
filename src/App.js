@@ -1,17 +1,23 @@
+import React from "react";
 import { Routes, Route } from "react-router-dom"
+
 
 import WeatherMain from './components/WeatherMain';
 
 import './App.css';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
+    <>
       <Routes>
         <Route path="/" element={<WeatherMain />} />
+        <Route
+          path="*"
+          element={<WeatherMain to="/" replace={true} />}
+        />
       </Routes>
-    </div>
+    </>
+
   );
 }
 
-export default App;
