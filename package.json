@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/Davidkramer1999/WeahterApp",
+  "homepage": "https://Davidkramer1999.github.io/weather-app",
   "name": "weather-app",
   "version": "0.1.0",
   "private": true,
@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-  	"deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +44,12 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0"
-  }
+    "gh-pages": "^5.0.0",
+    "typescript": "^5.1.6"
+  },
+  "description": "- git clone https://github.com/Davidkramer1999/WeahterApp",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

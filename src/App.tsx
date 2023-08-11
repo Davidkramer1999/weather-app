@@ -1,9 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom"
-
-
-import WeatherMain from './components/WeatherMain';
-
+import WeatherMain from "./components/WeatherMain";
 import './App.css';
 
 export default function App() {
