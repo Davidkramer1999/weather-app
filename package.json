@@ -9,14 +9,16 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
-  "main": "./extension.js",
-  "contributes": {
+  "activationEvents": [
+    "onCommand:liblinkerjs.checkImports"
+],
+"main": "./extension.js",
+"contributes": {
     "commands": [{
-      "command": "liblinkerjs.helloWorld",
-      "title": "Hello World"
+        "command": "liblinkerjs.checkImports",
+        "title": "Check Library Imports"
     }]
-  },
+},
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
