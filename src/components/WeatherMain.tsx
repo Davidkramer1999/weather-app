@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import DetailedInformation from "./DetailedInformation";
 import MainDetails from "./MainDetails";
 
@@ -8,30 +8,26 @@ import CityHistory from "./CityHistory";
 import SearchBar from "./SearchBar";
 import { getBackgroundImageClass } from "./GetBackgroundImage";
 import ErrorMessage from "./ErrorMessage";
-import { capitalizeFirstLetter } from "./helpers";
 import { Cities, City } from "./Types/Weather";
+
+function getInitialCityHistory(): Cities {
+  const item = localStorage.getItem("cityHistory");
+  if (item) {
+    return JSON.parse(item) as Cities;
+  }
+  return { city: [] };
+}
 
 export default function WeatherMain() {
   const [city, setCityName] = useState<string>("");
   const [cityData, setCityData] = useState<City | undefined>(undefined);
-  const [cityHistory, setCityHistory] = useState<Cities>({ city: [] });
+  const [cityHistory, setCityHistory] = useState<Cities>(getInitialCityHistory);
+
   const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
-    const keyDownHandler = (event: KeyboardEvent) => {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        fetchData();
-      }
-    };
-    document.addEventListener("keydown", keyDownHandler);
-    return () => {
-      document.removeEventListener("keydown", keyDownHandler);
-    };
-  });
-
   function checkCityDuplication(city: string, cityHistory: Cities) {
-    if (cityHistory.city.some((el) => el.name === capitalizeFirstLetter(city))) {
+    const cleanedCity = city.trim().toLowerCase();
+    if (cityHistory.city.some((el) => el.name.trim().toLowerCase() === cleanedCity)) {
       return `You already added ${city}`;
     }
     return null;
@@ -39,7 +35,7 @@ export default function WeatherMain() {
 
   async function fetchWeatherData(city: string) {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}${process.env.REACT_APP_KEY}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_KEY}&units=metric`
     );
     if (!response.ok) {
       throw new Error(`Could not fetch weather data for provided city ${city}`);
@@ -67,6 +63,7 @@ export default function WeatherMain() {
       const weatherData = await fetchWeatherData(city);
       setCityData(weatherData);
       setCityHistory((prevCityHistory) => updateCityHistory(prevCityHistory, weatherData));
+      localStorage.setItem("cityHistory", JSON.stringify([...cityHistory.city, weatherData]));
       setCityName("");
     } catch (e) {
       setErrorMessage(`Could not fetch weather data for provided city ${city}`);
