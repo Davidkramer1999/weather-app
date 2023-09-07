@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "gh-pages": "^5.0.0",
-    "typescript": "^5.1.6"
+    "typescript": "^4.9.5"
   },
   "description": "- git clone https://github.com/Davidkramer1999/WeahterApp",
   "main": "index.js",

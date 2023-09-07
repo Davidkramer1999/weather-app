@@ -76,10 +76,9 @@ export default function WeatherMain() {
   };
 
   const weatherImage = cityData ? cityData.weather?.[0]?.main : undefined;
-  const backgroundImageClass = getBackgroundImageClass(weatherImage || "");
 
   return (
-    <div className={`background ${getBackgroundImageClass(backgroundImageClass)}`}>
+    <div className={`${getBackgroundImageClass(weatherImage || "")}`}>
       <div className="blur">
         <div className="verticalTop">
           <span>
